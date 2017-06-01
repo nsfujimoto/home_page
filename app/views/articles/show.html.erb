@@ -1,0 +1,7 @@
+<% @page_title = @article.title %>
+
+<p><%= @article.title %></p><hr>
+<p><%= @article.body %></p><hr>
+<p><%= @article.created_at %></p><hr>
+
+<%= link_to "編集", edit_article_path(@article) %>

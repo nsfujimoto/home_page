@@ -1,0 +1,4 @@
+<%= form.text_field :title, value: "タイトル" %><br>
+<%= form.text_area :contnt, value: "見出し", style: "width:400px; height:100px;" %><br>
+<%= form.text_area :body, value: "本文", style: "width:400px; height:200px;" %><br>
+<%= form.select :status, {"草稿" => "draft", "公開" => "published", "非公開" => "private"} %>

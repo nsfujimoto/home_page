@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @page_title + " - " if @page_title.present?%>MyBlog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body id="body">
+		<!-- Header -->
+		<div id="header">
+		<%= render "shared/header" %>
+		</div>
+		<!-- Header -->
+
+		<!-- Content -->
+		<div id="wrapper">
+		<div id="content">
+			<%= yield %>
+		</div>
+		<div id="sidebar">
+			it's sidebar
+			<ul><li>a</li><li>b</li></ul>
+		</div>
+		</div>
+		<!-- Content -->
+
+		<!-- Footer -->
+		<div id="footer">
+		<%= render "shared/footer" %>
+		</div>
+		<!-- Footer -->
+  </body>
+</html>

@@ -1,0 +1,16 @@
+・テーブル
+	Users
+	Articles
+	Categories
+	Photos
+
+
+
+"articles" (
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"title" varchar NOT NULL, 
+	"body" text NOT NULL, 
+	"content" text, 
+	"status" varchar DEFAULT 'draft', 
+	"created_at" datetime NOT NULL, 
+	"updated_at" datetime NOT NULL);
