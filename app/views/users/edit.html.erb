@@ -1,0 +1,9 @@
+<% @page_title = "ユーザ情報の編集" %>
+
+<h1><%= @page_title %></h1>
+
+<%= form_for @user do |form| %>
+<% logger.debug @user %>
+	<%= render "form", form: form, user: @user %>
+	<%= form.submit %>
+<% end %>

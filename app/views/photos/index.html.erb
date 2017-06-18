@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Photos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr><td>
+				<tr><td colspan="3"><%= create_photo_image_tag(photo, alt: photo.name, class: "thumbnail") %></td></tr>
+				<tr>
+        <td><%= link_to 'Show', photo %></td>
+        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+      </td></tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Photo', new_photo_path %>

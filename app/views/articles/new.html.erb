@@ -1,6 +1,8 @@
-<%= page_title = "記事の新規作成" %>
+<% page_title = "記事の新規作成" %>
+
+<h1><%= page_title %></h1>
 
 <%= form_for @article do |form| %>
-<%= render "form" , form: form %>
-<br><%= form.submit %>
+<%= render "form" , form: form, article: @article%>
+<%= form.submit %>
 <% end %>

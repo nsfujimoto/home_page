@@ -1,9 +1,17 @@
 <% @page_title = "記事一覧" %>
 
+<p><%= link_to "新規作成", :new_article %></p>
 <% if @articles.present? %>
 	<% @articles.each do |article| %>
+		<article>
 		<%= link_to article.title, article %> |
-		<%= article.created_at %>
+		<%= article.created_at %> | 
+		<% unless article.category.nil? %>
+		<%= link_to article.category.name, article.category %>
+		<% else %>
+		no_category
+		<% end %>
+		</article>
 	<% end %>
 <% else %>
 	記事はありません

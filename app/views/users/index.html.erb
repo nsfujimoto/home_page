@@ -1,0 +1,13 @@
+<% page_title = "ユーザー一覧" %>
+
+<%= link_to "新規登録", :new_user %>
+<% if @users.present? %>
+	<% @users.each do |user| %>
+		<div id="user">
+		<%= link_to user.name, user %> / 
+		<%= user.profile %>
+		</div>
+	<% end %>
+<% else %>
+	<h1>ユーザー情報はありません。</h1>
+<% end %>

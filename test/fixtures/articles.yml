@@ -5,12 +5,14 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  id: 1
   title: "test_title"
+  content: "test_content"
   body: "test_body"
   status: "draft"
 
 
-<% 100.times do |n| %>
+<% 1.upto(10) do |n| %>
 article_<%= n %>:
   title: <%= "title#{n}" %>
   body: <%= "body#{n}" %>

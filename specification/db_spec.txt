@@ -8,9 +8,20 @@
 
 "articles" (
 	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-	"title" varchar NOT NULL, 
-	"body" text NOT NULL, 
-	"content" text, 
-	"status" varchar DEFAULT 'draft', 
+	"title" varchar NOT NULL,  #空禁止, 1-200文字
+	"body" text NOT NULL, #空禁止, 1-10000文字
+	"content" text, #1-2000文字
+	"status" varchar DEFAULT 'draft', #"published", "draft", "private" のみ設定可能 
+	"created_at" datetime NOT NULL, 
+	"updated_at" datetime NOT NULL);
+
+CREATE TABLE IF NOT EXISTS "users" (
+	"id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+	"name" varchar, NOTNULL #1 ~ 100文字
+	"detail" text, #0 ~ 4000文字
+	"profile" text, #0~400文字
+	"place" text, #0~100文字
+	"email" varchar, 
+	"hashed_password" varchar, NOTNULL
 	"created_at" datetime NOT NULL, 
 	"updated_at" datetime NOT NULL);

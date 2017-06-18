@@ -3,8 +3,9 @@
 </div>
 <nav id="menubar">
 	<ul>
-	<a href="#"><li>MENU1</li></a>
-	<a href="#"><li>MENU2</li></a>
-	<a href="#"><li>MENU3</li></a>
+	<%= link_to "<li>TOP</li>".html_safe, :root %>
+	<%= link_to "<li>ブログ</li>".html_safe, :articles %>
+	<%= link_to "<li>ユーザー</li>".html_safe, :users %>
+	<%= link_to "<li>Photos</li>".html_safe, :photos %>
 	</ul>
 </nav>

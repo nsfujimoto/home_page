@@ -1,4 +1,14 @@
-<%= form.text_field :title, value: "タイトル" %><br>
-<%= form.text_area :contnt, value: "見出し", style: "width:400px; height:100px;" %><br>
-<%= form.text_area :body, value: "本文", style: "width:400px; height:200px;" %><br>
-<%= form.select :status, {"草稿" => "draft", "公開" => "published", "非公開" => "private"} %>
+<table>
+<tr><td>
+<%= form.text_field :title, value: article.title, placeholder: "タイトル" %>
+</td></tr>
+<tr><td>
+<%= form.text_area :content, value: article.content, style: "width:400px; height:100px;", placeholder: "見出し"%>
+</td></tr>
+<tr><td>
+<%= form.text_area :body, value: article.body, style: "width:400px; height:200px;", placeholder: "本文" %>
+</td></tr>
+<tr><td>
+<%= form.select :status, {"草稿" => "draft", "公開" => "published", "非公開" => "private"}, :selected => article.status %>
+</td></tr>
+</table>

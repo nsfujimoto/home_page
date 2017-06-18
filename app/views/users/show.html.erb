@@ -1,0 +1,30 @@
+<% @page_title = @user.name + "さんのユーザ詳細" %>
+
+<h1>ユーザー詳細</h1>
+<table>
+	<tr>
+		<td><%= create_user_image_tag @user if @user.image.present?%><td>
+	<tr>
+	<tr>
+		<th>名前</th>
+		<td><%= @user.name %></td>
+	</tr>
+	<tr>
+		<th>詳細1</th>
+		<td><%= @user.profile %></td>
+	</tr>
+	<tr>
+		<th>詳細2</th>
+		<td><%= @user.detail %></td>
+	</tr>
+	<tr>
+		<th>場所</th>
+		<td><%= @user.place %></td>
+	</tr>
+	<tr>
+		<th>メール</th>
+		<td><%= @user.email %></td>
+	</tr>
+</table>
+<%= link_to "編集", [:edit, @user] %>
+<%= link_to "削除", @user, method: :delete, data: { confirm: "本当に削除しますか?" } %>

@@ -10,15 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529131727) do
+ActiveRecord::Schema.define(version: 20170618221507) do
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title",                        null: false
-    t.text     "body",                         null: false
+    t.string   "title",                         null: false
+    t.text     "body",                          null: false
     t.text     "content"
-    t.string   "status",     default: "draft"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "status",      default: "draft"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_articles_on_category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.binary   "data",       null: false
+    t.string   "file_type",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_images", force: :cascade do |t|
+    t.integer  "user_id"
+    t.binary   "image"
+    t.string   "file_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_images_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",            null: false
+    t.text     "detail"
+    t.text     "place"
+    t.string   "email"
+    t.string   "hashed_password", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "profile"
   end
 
 end

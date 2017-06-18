@@ -1,0 +1,11 @@
+<table>
+<%= form.fields_for :image do |image| %>
+<tr><td><%= image.file_field :uploaded_image %></td></tr>
+<% end %>
+<tr><td><%= form.text_field :name, placeholder: "名前" %></td></tr>
+<tr><td><%= form.text_area :profile, placeholder: "詳細1" %></td></tr>
+<tr><td><%= form.text_area :detail, placeholder: "詳細2" %></td></tr>
+<tr><td><%= form.text_field :place, placeholder: "所在地" %></td></tr>
+<tr><td><%= form.text_field :email, placeholder: "sample@example.com" %></td></tr>
+<tr><td><%= form.text_field :hashed_password, placeholder: "パスワード" %></td></tr>
+</table>
