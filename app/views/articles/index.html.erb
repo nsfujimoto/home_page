@@ -1,5 +1,7 @@
 <% @page_title = "記事一覧" %>
 
+<p id="notice"><%= notice %></p>
+
 <p><%= link_to "新規作成", :new_article %></p>
 <% if @articles.present? %>
 	<% @articles.each do |article| %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618221507) do
+ActiveRecord::Schema.define(version: 20170625070736) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",                         null: false
@@ -20,13 +20,16 @@ ActiveRecord::Schema.define(version: 20170618221507) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "category_id"
+    t.integer  "user_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "deletable",  default: true
   end
 
   create_table "photos", force: :cascade do |t|
@@ -55,6 +58,8 @@ ActiveRecord::Schema.define(version: 20170618221507) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "profile"
+    t.string   "nick_name",       null: false
+    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
 end

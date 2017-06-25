@@ -18,7 +18,6 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find(params[:id])
-		p params[:article]
 		@article.assign_attributes(article_params)
 
 		if @article.save
@@ -46,7 +45,7 @@ class ArticlesController < ApplicationController
 
 	private
 	def article_params
-		allows = [:title, :body, :status, :content]
+		allows = [:title, :body, :status, :content, :category_id]
 		params.require(:article).permit(allows)
 	end
 	

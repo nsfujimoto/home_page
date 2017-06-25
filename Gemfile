@@ -48,5 +48,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#コントローラテスト用パッケージ
+#繧ｳ繝ｳ繝医Ο繝ｼ繝ｩ繝�繧ｹ繝育畑繝代ャ繧ｱ繝ｼ繧ｸ
 gem 'rails-controller-testing'
+
+gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'

@@ -2,3 +2,4 @@ test:
   name: "test"
   profile: "test_profile"
   hashed_password: "password"
+  nick_name: "test_nick_name"

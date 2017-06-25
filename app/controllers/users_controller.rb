@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
-		@user.build_image
 	end
 
 	def create
@@ -28,6 +27,7 @@ class UsersController < ApplicationController
 		if @user.save
 			redirect_to @user
 		else
+			@user.build_image
 			render "new"
 		end
 	end
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 	private
 	def user_params
 		logger.debug params
-		allows = [:name, :detail, :profile, :place, :email, :hashed_password]
+		allows = [:name, :detail, :profile, :place, :email, :nick_name, :password, :password_confirmation]
 		allows << {image_attributes: [:uploaded_image]}
 		params.require(:user).permit(allows)
 	end

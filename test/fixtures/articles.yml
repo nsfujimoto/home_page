@@ -16,4 +16,5 @@ one:
 article_<%= n %>:
   title: <%= "title#{n}" %>
   body: <%= "body#{n}" %>
+  category_id: <%= [1, 2, 3][n % 3] %>
 <% end %>

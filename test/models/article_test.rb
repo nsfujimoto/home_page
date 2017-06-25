@@ -22,6 +22,6 @@ class ArticleTest < ActiveSupport::TestCase
 
 	private
 	def create_article( title: "test_title", body: "test_body", status: "draft" )
-		Article.new( title: title, body: body, status: status )
+		Article.new( title: title, body: body, status: status, category: Category.last )
 	end
 end

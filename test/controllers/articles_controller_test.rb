@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
+	def setup
+	end
+
   test "index" do
 		get :index
 		assert_response :success
@@ -24,15 +27,25 @@ class ArticlesControllerTest < ActionController::TestCase
 		get :edit, params: {id: id}
 		assert_response :success
 		assert assigns(:article).present?
+		assert_select "select", 2
+		assert_select "option", 6
 	end
 
 	test "create" do
-		post :create, params: { article: { title: "test_title", content: "test_content", body: "test_body" }}
-		article = Article.order(:id).last
+		assert_difference "Article.count" do
+			post :create, params: { article: { title: "test_title", content: "test_content", body: "test_body", category_id: "1" }}
+		end
 		assert_response :redirect
-		assert_redirected_to article
+		assert_redirected_to Article.last
 	end	
 
+	test "update" do
+		assert_no_difference "Article.count" do
+			patch :update, params: { id: 1, article: { title: "test_title", content: "test_content", body: "test_body", category_id: "1" }}
+		end
+		assert_response :redirect
+		assert_redirected_to Article.find(1)
+	end
 
 	test "destroy success test" do
 		id = Article.order(:id).first.id

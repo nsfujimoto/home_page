@@ -39,14 +39,15 @@ class UsersTest < ActiveSupport::TestCase
 
 	private
 	def make_user(name: "test_name", detail: "test_detail", profile: "test_profile",
-								place:"test_place", email: "test@example.com", hashed_password: "password")
+								place:"test_place", email: "test@example.com", hashed_password: "password", nick_name: "nick_name")
 		User.new(
 			name: name,
 			detail: detail,
 			profile: profile,
 			place: place,
 			email: email,
-			hashed_password: hashed_password
+			hashed_password: hashed_password,
+			nick_name: nick_name
 		)
 	end
 end

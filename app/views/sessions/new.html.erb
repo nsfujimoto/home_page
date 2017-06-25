@@ -1,0 +1,11 @@
+<% @page_title = "ログイン" %>
+
+<p id="notice"><%= notice %></p>
+<h1><%= @page_title %></h1>
+<%= form_for :login do |f| %>
+<h3>id</h3>
+<%= f.text_field :id %><br>
+<h3>password</h3>
+<%= f.password_field :password %><br>
+<%= f.submit "Login"%>
+<% end %>

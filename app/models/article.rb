@@ -4,6 +4,7 @@ class Article < ApplicationRecord
 	validates :title, presence: true, length: { maximum: 200 }
 	validates :body, presence: true, length: { maximum: 20000 }
 	validate :check_status
+	
 
 	private
 	def check_status

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
 	fixtures :users
-	form_num = 6
+	form_num = 8
 	
 	test "index exist users" do
 		get :index
@@ -21,28 +21,32 @@ class UsersControllerTest < ActionController::TestCase
 		user = make_user
 		get :show, params: {id: user.id}
 		assert_response :success
-		assert_select "td", 5
+		assert_select "table#user" do
+			assert_select "td", form_num - 1
+		end
 		assert_select "a", /編集/
 	end
 
 	test "new test" do
 		get :new
 		assert_response :success
-		assert_select "td", form_num
+		assert_select "table#user" do
+			assert_select "td", form_num
+		end
 	end
 
 	test "create success test" do
-		count = User.count
-		post :create, params: { user: {name: "test_name", detail: "test_detail", profile: "test_profile",
-																	place: "test_place", hashed_password: "test_password" } }
+		assert_difference "User.count" do
+			post :create, params: { user: {name: "test_name", detail: "test_detail", profile: "test_profile",
+																	place: "test_place", hashed_password: "test_password", nick_name: "nick_name" } }
+		end
 		assert_response :redirect
-		assert_equal User.count, count + 1
 	end
 
 	test "create failed test" do
 		count = User.count
 		post :create, params: { user: {name: nil, detail: "test_detail", profile: "test_profile", 
-																	place: "test_place", hashed_password: nil }}
+																	place: "test_place", hashed_password: nil, nick_name: "nick_name" }}
 		assert_response :success
 		assert_template "new"
 		assert_equal User.count, count
@@ -52,7 +56,9 @@ class UsersControllerTest < ActionController::TestCase
 		user = make_user
 		get :edit, params: {id: user.id}
 		assert_response :success
-		assert_select "td", form_num
+		assert_select "table#user" do
+			assert_select "td", form_num - 1
+		end
 	end
 
 	test "update success test" do
@@ -83,14 +89,16 @@ class UsersControllerTest < ActionController::TestCase
 	
 	private
 	def make_user(name: "test_name", detail: "test_detail", profile: "test_profile",
-								place: "test_place", email: "test@example.co.jp", hashed_password: "password")
+								place: "test_place", email: "test@example.co.jp", hashed_password: "password", nick_name: "nick_name")
 		user = User.create(
 			name: name,
 			detail: detail,
 			profile: profile,
 			place: place,
 			email: email,
-			hashed_password: hashed_password)
+			hashed_password: hashed_password,
+			nick_name: nick_name
+			)
 		user
 	end
 end

@@ -11,4 +11,7 @@
 <tr><td>
 <%= form.select :status, {"草稿" => "draft", "公開" => "published", "非公開" => "private"}, :selected => article.status %>
 </td></tr>
+<tr><td>
+<%= form.select :category_id, Category.get_hash %>
+</td></tr>
 </table>
