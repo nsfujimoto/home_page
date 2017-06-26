@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+	before_action :login_required, only: [:new, :edit, :update, :create, :destroy]
+	before_action :check_author, only: [:edit, :update, :destroy]
 
 	def index
 		@articles = Article.all
@@ -10,6 +12,7 @@ class ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
+		logger.debug "test_log"
 	end
 
 	def edit
@@ -30,6 +33,7 @@ class ArticlesController < ApplicationController
 	def create
 		@article = Article.new
 		@article.assign_attributes(article_params)
+		@article.author = current_user
 
 		if @article.save
 			redirect_to @article, notice:"ブログを作成しました"
@@ -49,4 +53,9 @@ class ArticlesController < ApplicationController
 		params.require(:article).permit(allows)
 	end
 	
+
+	def check_author
+		article = Article.find_by(id: params[:id])
+		redirect_to :back, notice: "アクセス権限がありません" unless article.author == current_user || current_user.administrator
+	end
 end

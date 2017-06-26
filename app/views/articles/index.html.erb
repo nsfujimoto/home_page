@@ -13,6 +13,7 @@
 		<% else %>
 		no_category
 		<% end %>
+		| <%= article.author.nick_name if article.author %>
 		</article>
 	<% end %>
 <% else %>

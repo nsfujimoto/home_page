@@ -22,6 +22,41 @@ div#header{
 	}
 }
 
+nav#userbar{
+	background-color: #000;
+	height: 20px;
+	color: #FFF;
+	a:link { text-decoration: none; color: #FFF; }
+	a:visited { text-decoration: none; color: #FFF; }
+
+	ul#right_menu{
+		margin: 0;
+		padding: 0;
+		margin-left: auto;
+		width: 300px;
+		list-style: none;
+
+		li {
+			float: right;
+			padding: 0 10px;
+		}
+	}
+
+	ul#left_menu{
+		margin: 0;
+		padding: 0;
+		margin-right: auto;
+		width: 200px;
+		line-style: none;
+
+		li {
+			float: left;
+			padding: 0 10px;
+		}
+	}
+}
+
+
 div#wrapper{
 	width: 850px;
 	min-height: 100%;

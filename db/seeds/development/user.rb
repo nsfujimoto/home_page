@@ -13,7 +13,8 @@ password = "password"
 		email: names[n % 5] + "@example.com",
 		nick_name: names[n % 5],
 		password: "password",
-		password_confirmation: "password"
+		password_confirmation: "password",
+		administrator: n % 3 == 0 ? true : false
 	)
 	
 	path = Rails.root.join("db/seeds/development", "#{n % 3 + 1}.jpg")

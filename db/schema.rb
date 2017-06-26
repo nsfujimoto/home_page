@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625070736) do
+ActiveRecord::Schema.define(version: 20170626164510) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",                         null: false
@@ -50,15 +50,16 @@ ActiveRecord::Schema.define(version: 20170625070736) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",            null: false
+    t.string   "name",                            null: false
     t.text     "detail"
     t.text     "place"
     t.string   "email"
-    t.string   "hashed_password", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "hashed_password",                 null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "profile"
-    t.string   "nick_name",       null: false
+    t.string   "nick_name",                       null: false
+    t.boolean  "administrator",   default: false
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 

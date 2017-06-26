@@ -9,6 +9,7 @@ end
 	article.status = ["published", "draft", "private"][n % 3]
 	article.content = "test_content" if n % 3 == 1
 	article.category = Category.find(n % 3 + 1)
+	article.user_id = n % 3 + 1
 	if article.save
 	else
 		p "#{n} error create"
