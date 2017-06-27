@@ -3,6 +3,7 @@ class User < ApplicationRecord
 	accepts_nested_attributes_for :image
 
 	has_many :article, dependent: :destroy
+	has_many :photo
 
 	validates :name, presence: true, length: { maximum: 100}
 	validates :detail, length: {maximum: 4000}

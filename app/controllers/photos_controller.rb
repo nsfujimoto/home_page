@@ -1,7 +1,12 @@
 class PhotosController < ApplicationController
+	before_action :login_required, except: [:show]
 
   def index
-    @photos = Photo.all
+		if current_user.administrator
+			@photos = Photo.all
+		else
+			@photos = Photo.users(current_user)
+		end
   end
 
   def show
@@ -25,6 +30,7 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new
 		@photo.assign_attributes(photo_params)
+		@photo.user = current_user
 		
     if @photo.save
 			redirect_to @photo, notice: 'Photo was successfully created.' 

@@ -1,8 +1,11 @@
 class Photo < ApplicationRecord
-	
+	belongs_to :user
+
 	validates :name, presence: true, length: {maximum: 100}
 	validates :uploaded_image, presence: {on: :create }
 	validate :check_image
+
+	scope :users, -> (user) { where( "user_id == #{user.id}" ) }
 
 	attr_accessor :uploaded_image
 
