@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+	before_action :login_required, only: [:new, :edit, :create, :update, :destroy]
+	before_action :admin_required, only: [:destroy]
+
 	def index
 		@categories = Category.all
 	end
