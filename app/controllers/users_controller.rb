@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+	before_action :login_required, only: [:new, :edit, :create, :update, :destroy]
+	before_action :check_authority, only: [:edit, :update, :destroy]
+	before_action :admin_required, only: [:new, :create] 
+
 	def index
 		@users = User.all
 	end
@@ -61,5 +65,10 @@ class UsersController < ApplicationController
 	def send_image
 		logger.debug @user.image.file_type
 		send_data @user.image.image, type: @user.image.file_type , disposition: "inline"
+	end
+
+	def check_authority
+		user = User.find_by(id: params[:id])
+		redirect_to :root, notice: "権限がありません" unless current_user.administrator || current_user == user
 	end
 end

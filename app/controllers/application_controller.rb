@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 		unless current_user
 			redirect_to login_path
 		else
-			redirect_to :root unless current_user.administrator
+			redirect_to :root, notice: "権限がありません" unless current_user.administrator
 		end
 	end
 end
