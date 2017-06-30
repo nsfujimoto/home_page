@@ -2,11 +2,11 @@
 
 <p id="notice"><%= notice %></p>
 
-<p><%= link_to "新規作成", "#" %></p>
+<p><%= link_to "新規作成", new_admin_article_path %></p>
 <% if @articles.present? %>
 	<% @articles.each do |article| %>
 		<article>
-		<%= link_to article.title, article %> |
+		<%= link_to article.title, admin_article_path(article) %> |
 		<%= article.created_at %> | 
 		<% unless article.category.nil? %>
 		<%= link_to article.category.name, article.category %>

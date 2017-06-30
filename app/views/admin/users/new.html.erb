@@ -1,0 +1,6 @@
+<% @page_title = "新規ユーザの作成" %>
+
+<%= form_for @user do |form| %>
+	<%= render "form", form: form %>
+	<%= form.submit id: "submit"%>
+<% end %>

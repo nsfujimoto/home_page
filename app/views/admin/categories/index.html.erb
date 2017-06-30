@@ -1,0 +1,12 @@
+<% @page_title = "カテゴリ一覧" %>
+<p id="notice"><%= notice %></p>
+<h1><%= @page_title %></h1>
+
+<div>
+<% @categories.each do |category| %>
+	<%= link_to category.name, category %> | 
+	<%= link_to "編集", [:edit, category] %> |
+	<%= link_to "削除", category, method: :delete, data: {confirm: "削除しますか"} %><br>
+<% end %>
+</div>
+<%= link_to "新規作成", new_category_path %>

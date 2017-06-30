@@ -24,7 +24,7 @@ div#header{
 
 nav#userbar{
 	background-color: #000;
-	height: 20px;
+	height: 25px;
 	color: #FFF;
 	a:link { text-decoration: none; color: #FFF; }
 	a:visited { text-decoration: none; color: #FFF; }
@@ -33,7 +33,7 @@ nav#userbar{
 		margin: 0;
 		padding: 0;
 		margin-left: auto;
-		width: 300px;
+		min-width: 300px;
 		list-style: none;
 
 		li {

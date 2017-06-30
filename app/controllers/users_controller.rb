@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-	before_action :login_required, only: [:new, :edit, :create, :update, :destroy]
+	before_action :login_required, only: [:index, :new, :edit, :create, :update, :destroy]
 	before_action :check_authority, only: [:edit, :update, :destroy]
-	before_action :admin_required, only: [:new, :create] 
+	before_action :admin_required, only: [:index, :new, :create] 
 
 	def index
 		@users = User.all

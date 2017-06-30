@@ -1,0 +1,15 @@
+<table id="user">
+<%= form.fields_for :image do |image| %>
+<tr><td><%= image.file_field :uploaded_image %></td></tr>
+<% end %>
+<% if controller.action_name == "new" || controller.action_name == "create" %>
+<tr><td><%= form.text_field :name, placeholder: "ID" %></td></tr>
+<% end %>
+<tr><td><%= form.text_field :nick_name, placeholder: "名前" %></td></tr>
+<tr><td><%= form.text_area :profile, placeholder: "詳細1" %></td></tr>
+<tr><td><%= form.text_area :detail, placeholder: "詳細2" %></td></tr>
+<tr><td><%= form.text_field :place, placeholder: "所在地" %></td></tr>
+<tr><td><%= form.text_field :email, placeholder: "sample@example.com" %></td></tr>
+<tr><td><%= form.text_field :password, value: "", placeholder: "パスワード" %></td></tr>
+<tr><td><%= form.text_field :password_confirmation, value: "", placeholder: "確認用パスワード" %></td></tr>
+</table>

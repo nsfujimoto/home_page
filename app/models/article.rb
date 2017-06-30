@@ -9,6 +9,8 @@ class Article < ApplicationRecord
 	validates :user_id, presence: true
 	validate :check_status
 	
+	scope :user, -> (current_user) { where("user_id = #{current_user.id}")}
+
 
 	private
 	def check_status

@@ -1,0 +1,18 @@
+<% page_title = "ユーザー一覧" %>
+
+<%= link_to "新規登録", "#" %>
+
+<% if @users.present? %>
+	<table>
+	<tr><th>名前</th><th>プロフィール</th><th>作成日</th></tr>
+	<% @users.each do |user| %>
+		<tr>
+		<td><%= link_to user.nick_name, user %></td>
+		<td><%= user.profile %></td>
+		<td><%= user.created_at %></td>
+		</tr>
+	<% end %>
+	</table>
+<% else %>
+	<h1>ユーザー情報はありません。</h1>
+<% end %>

@@ -1,12 +1,5 @@
 <% if current_user %>
-<nav id="userbar">
-	<ul id="left_menu">
-		<li>ユーザーメニュー</li>
-	</ul>
-	<ul id="right_menu">
-		<li>こんにちは<%= current_user.nick_name %>さん </li>
-		<li><%= link_to "ログアウト", :logout,  method: :delete %></li>
-	</ul>
+<%= render "shared/user_header" %>
 </nav>
 <% end %>
 <div id="header_image">

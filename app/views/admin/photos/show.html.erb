@@ -1,0 +1,5 @@
+<p id="notice"><%= notice %></p>
+
+<%= create_photo_image_tag @photo, alt: "test_alt", width: 500 %>
+<%= link_to 'Edit', edit_admin_photo_path(@photo) %> |
+<%= link_to 'Back', admin_photos_path %>

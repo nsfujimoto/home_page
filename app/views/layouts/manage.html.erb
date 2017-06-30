@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @page_title + " - " if @page_title.present?%>管理ページ</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body id="body">
+		<!-- Header -->
+		<div id="header">
+			<%= render "shared/user_header" %>
+		</div>
+		<!-- Header -->
+
+		<!-- Content -->
+		<div id="manage_wrapper">
+		
+		<!-- Sidebar -->
+		<div id="sidebar_container">
+		<nav id="manage_sidebar">
+			<%= render "shared/manage_sidebar" %>
+		</nav>
+		</div>
+		<!-- Sidebar -->
+		
+		<!-- MainContent -->
+		<div id="manage_container">
+			<div id="main_content">
+			<%= yield %>
+			</div>
+		</div>
+		<!-- MainContent -->
+
+		</div>
+		<!-- Content -->
+
+		<!-- Footer -->
+		<div id="manage_footer">
+		<%= render "shared/manage_footer" %>
+		</div>
+		<!-- Footer -->
+  </body>
+</html>

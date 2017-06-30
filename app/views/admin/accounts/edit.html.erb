@@ -1,0 +1,8 @@
+<% @page_title = "ユーザ情報の編集" %>
+
+<h1><%= @page_title %></h1>
+
+<%= form_for @user, url: {controller: "admin/accounts", action: "update"} do |form| %>
+	<%= render "form", form: form, user: @user %>
+	<%= form.submit %>
+<% end %>

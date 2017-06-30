@@ -1,0 +1,13 @@
+<ul>
+	<li><%= link_to "記事管理", admin_articles_path %></li>
+	<li><%= link_to "画像管理", admin_photos_path %></li>
+	<li><%= link_to "レイアウト管理", "#" %></li>
+	<li><%= link_to "アカウント管理", admin_account_path %></li>
+	<% if current_user.administrator %>
+		<li><%= link_to "ユーザー管理", admin_users_path %></li>
+	<% end %>
+	
+	<li><%= link_to "ブログへ", :root %></li>
+	<li><%= link_to "ログアウト", :logout, method: :delete %></li>
+</ul>
+

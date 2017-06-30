@@ -14,9 +14,9 @@
       <tr><td>
 				<tr><td colspan="3"><%= create_photo_image_tag(photo, alt: photo.name, class: "thumbnail") %></td></tr>
 				<tr>
-        <td><%= link_to 'Show', photo %></td>
-        <td><%= link_to 'Edit', "#"%></td>
-        <td><%= link_to 'Destroy', "#", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_photo_path(photo) %></td>
+        <td><%= link_to 'Edit', edit_admin_photo_path(photo) %></td>
+        <td><%= link_to 'Destroy', admin_photo_path(photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
       </td></tr>
     <% end %>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Photo', "#" %>
+<%= link_to 'New Photo', new_admin_photo_path %>
