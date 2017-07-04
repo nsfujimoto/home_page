@@ -4,6 +4,8 @@ html, body{
 	height: 100%;
 }
 
+html { overflow: auto; }
+body { min-height: 100% }
 
 div#header{
 	width: 100%;
@@ -58,12 +60,13 @@ nav#userbar{
 
 
 div#wrapper{
-	width: 850px;
+	width: 900px;
 	min-height: 100%;
 	margin: 0 auto;
-	padding: 10px;
-	background-color: #CFC;
+	padding: 0;
 	margin-bottom: 10px;
+
+	overflow: hidden;
 }
 
 div#footer{
@@ -80,16 +83,54 @@ div#footer{
 }
 
 div#content{
-	background-color: #DFD;
-	width: 70%;
+	width: 630px;
 	float: left;
+	margin-bottom: -10000px;
+	padding-bottom: 10000px;
 }
 
+
+
 div#sidebar{
-	width: 30%;
-	background-color: #FDF;
+	width: 250px;
 	float: right;
+	padding-left: 8px;
+	margin-bottom: -10000px;
+	padding-bottom: 10000px;
+	border-left: dashed 2px #000;
+
+	dl{
+		dt{
+			font-size: 18px;
+		}
+		dd{
+			margin: 0;
+			padding-left: 15px;
+		}
+	}
+
+	div#profile{
+		min-height: 250px;
+		width: 90%;
+		
+		h3 {margin: 0 5px;}
+		.profile_img {
+			height: 120px;
+			width: 120px;
+			margin-left: 10px;
+			display: block;
+		}
+
+		h4 { margin: 5px 0;}
+		
+		.profile_body{
+			margin: 5px 5px;
+			padding: 0 5px;
+		}
+	}
 }
+
+
 
 nav#menubar{
 	bottom: 0;	

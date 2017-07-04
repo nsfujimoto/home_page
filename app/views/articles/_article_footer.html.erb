@@ -1,8 +1,11 @@
 <hr>
 <div><small>
-作成：<%= article.created_at %>
-更新：<%= article.updated_at %>
-<%= link_to "編集", ["edit", article] %>
-<%= link_to "削除", article, method: :delete, data: {confirm: "削除しますか?" } %>
+<%= article.updated_at %>
+Category&nbsp:<%= link_to article.category.name, article.category %>
+Posted_by&nbsp:<%= link_to article.author.nick_name, article.author %>
+<% if current_user %>
+<%= link_to "編集", edit_admin_article_path(article) %>
+<%= link_to "削除", admin_article_path(article), method: :delete, data: {confirm: "削除しますか?" } %>
+<% end %>
 </small></div>
 <hr>

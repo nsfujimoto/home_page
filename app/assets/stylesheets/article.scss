@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.article p{
-	word-wrap: break-word;
+.article {
+	table { 
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	p {
+		word-wrap: break-word;
+	}
+
 }

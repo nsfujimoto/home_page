@@ -3,10 +3,16 @@
 <h1><%= @page_title %></h1>
 
 <div>
+<table>
 <% @categories.each do |category| %>
-	<%= link_to category.name, category %> | 
-	<%= link_to "編集", [:edit, category] %> |
-	<%= link_to "削除", category, method: :delete, data: {confirm: "削除しますか"} %><br>
+<tr>
+	<td><%= link_to category.name, category %></td>
+	<% if current_user %>
+	<td><%= link_to "編集", edit_admin_category_path(category)%></td>
+	<td><%= link_to "削除", [:admin, category], method: :delete, data: {confirm: "削除しますか"} %></td>
+	<% end %>
+</tr>
 <% end %>
+</table>
 </div>
-<%= link_to "新規作成", new_category_path %>
+<%= link_to "新規作成", new_admin_category_path if current_user%>

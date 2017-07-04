@@ -2,20 +2,29 @@
 
 <p id="notice"><%= notice %></p>
 
+<% if current_user %>
 <p><%= link_to "新規作成", "#" %></p>
+<% end %>
+
 <% if @articles.present? %>
+<table class="article">
 	<% @articles.each do |article| %>
-		<article>
-		<%= link_to article.title, article %> |
-		<%= article.created_at %> | 
-		<% unless article.category.nil? %>
-		<%= link_to article.category.name, article.category %>
-		<% else %>
-		no_category
-		<% end %>
-		| <%= article.author.nick_name if article.author %>
-		</article>
+	<tr><td>
+		<table class="article">
+		<tr><td>
+			<h3><%= link_to article.title, article %></h3>
+		</td></tr>
+		<tr><td>
+			<article>
+			<p><%= article.content.to_s.html_safe %></p>
+			<p><%= article.body.truncate(200) %></p>
+			<%= render "article_footer", article: article%>
+			</article>
+		</td></tr>
+		</table>
+	</td></tr>
 	<% end %>
+</table>
 <% else %>
 	記事はありません
 <% end %>
