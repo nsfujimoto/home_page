@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 	before_action :check_author, only: [:edit, :update, :destroy]
 
 	def index
-		@articles = Article.all
+		@articles = Article.new_articles(5)
 	end
 
 	def show

@@ -10,7 +10,7 @@ class Article < ApplicationRecord
 	validate :check_status
 	
 	scope :user, -> (current_user) { where("user_id = #{current_user.id}")}
-	scope :new_articles, -> { find_by_sql(['select * from articles order by created_at desc limit 5']) }
+	scope :new_articles, -> ( n = 5 ) { find_by_sql(["select * from articles order by created_at desc limit #{n}"]) }
 
 	private
 	def check_status
