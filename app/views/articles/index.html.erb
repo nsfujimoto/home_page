@@ -3,7 +3,7 @@
 <p id="notice"><%= notice %></p>
 
 <% if current_user %>
-<p><%= link_to "新規作成", "#" %></p>
+<p><%= link_to "新規作成", new_admin_article_path %></p>
 <% end %>
 
 <% if @articles.present? %>

@@ -1,4 +1,4 @@
-tables = %w(user article photo)
+tables = %w(user article photo breeding_record)
 
 p "start create seed data"
 tables.each do |table|

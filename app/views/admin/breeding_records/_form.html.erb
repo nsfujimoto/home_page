@@ -1,0 +1,15 @@
+<%= form_for [:admin, record] do |f| %>
+<table>
+<% if controller.action_name == "new" %>
+	<tr><th>日付</th>
+	<td><%= f.date_select :date, start_year: 2015, end_year: 2020, default: Date.today, use_month_numbers: true %></td></tr>
+<% end %>
+<tr><th>給餌</th><td><%= f.text_field :feed %></td></tr>
+<tr><th>長さ</th><td><%= f.text_field :height %></td></tr>
+<tr><th>重さ</th><td><%= f.text_field :weight %></td></tr>
+<tr><th>脱皮</th><td><%= f.check_box :is_shed %></td></tr>
+<tr><th>メモ</th><td><%= f.text_area :note %></td></tr>
+<tr><th>画像</th><td><%= f.text_field :photo_url %></td></tr>
+</table>
+<%= f.submit %>
+<% end %>

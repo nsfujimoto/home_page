@@ -1,0 +1,97 @@
+<style>
+
+.calender_wrapper{width: 98%; }
+
+div#calender_header{ 
+	width: 90%;
+	margin: 0 auto;
+
+}
+
+.calender{
+	width: 100%;
+	min-height: 500px;
+	border-collapse: collapse;
+	word-break: break-all;
+}
+
+th, td{
+	width: 14.2%
+}
+
+td{
+	font-size: 14px;
+	line-height: 1em;
+}
+
+.header_row {
+	height: 20px;
+}
+
+.data_row {
+	height: 80px;
+}
+
+.other_month {
+	background-color: #CCC;
+}
+
+.small{
+	font-size: 12px;
+}
+
+</style>
+<p id="notice"><%= notice %></p>
+<h1><%= @year.to_s + "年" + @month.to_s + "月" + "の飼育記録" %></h1>
+
+<%= link_to "新規作成", new_admin_breeding_record_path %>
+
+
+<div class="calender_wrapper">
+<% @current = Date.new(@year, @month) %>
+<div id="calender_header">
+<div style="float: left;"><%= link_to "＜＜", "/admin/breeding_records/" + @current.prev_month.strftime("%Y/%m") %></div>
+<div style="float: right; text-align: right"><%= link_to "＞＞", "/admin/breeding_records/" + @current.next_month.strftime("%Y/%m") %></div>
+<div style="text-align: center;"><%= @current.strftime("%Y月%m月") %></div>
+</div>
+
+<table class="calender" border="1">
+<tr class="header_row"_>
+<th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+</tr>
+
+<% @start_day.upto(@end_day) do |date| %>
+
+	<% if date.wday == 0 %><tr class="data_row" valign="top"><% end %>
+		<% if date.month == @month %>
+			<td class="current_month">
+		<% else %>
+			<td class="other_month">
+		<% end %>
+			<table>
+			<tr><td class="date_cell"><%= date.day %></td></tr>
+			<tr><td class="data_cell">
+				<% if @records[date.to_s].present? %>
+					<% record = @records[date.to_s] %>
+					<% rec_text = "" %>
+					<% rec_text += "給餌 " if record.feed %>
+					<% rec_text += "身体測定 " if record.weight || record.height %>
+					<% rec_text += "脱皮 " if record.is_shed %>
+					<% rec_text += "メモ " if record.note %>
+					<% rec_text += "写真" if record.photo_url && record.photo_url != "" %>
+					<% if rec_text != "" %>
+						<%= link_to rec_text, [:admin, record] %>
+						<br><div class="small">
+						<%= link_to "[編集]", edit_admin_breeding_record_path(record) %>
+						<%= link_to "[削除]", [:admin, record], method: :delete, data: {confirm: "本当に削除しますか?"} %>
+						</div>
+					<% end %>
+				<% end %>
+			</td></tr>
+			</table>
+		</td>
+	<% if date.wday == 6 %></tr><% end %>
+<% end %>
+
+</table>
+</div>

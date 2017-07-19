@@ -1,20 +1,31 @@
-<% @page_title = "Hello World!" %>
-<p id="notice"><%= notice %></p>
-<h1>Hello World!</h1>
-<% @user = User.find_by(id: session[:user_id]) %>
-<%= @user.name if @user %>
-<p>
-it's my_page 
-</p>
+<% @page_title = "Top" %>
+<style>
+h2 {
+	font-weight: inherit;
+	border-bottom:
+	1px dashed #000
+}
+</style>
 
-<%= link_to :login, redirect_to: :articles  %>
 
-<p>
-ブログを表示する予定
-</p>
+<h2>最新記事</h2>
+<% article = Article.first %>
+<table class="article" style="width: 98%; margin: 0 auto;">
+	<tr><td>
+		<h3><%= link_to article.title, article %></h3>
+	</td></tr>
+	<tr><td>
+		<article>
+		<p><%= article.content.to_s.html_safe %></p>
+		<p><%= article.body.truncate(200) %></p>
+		<%= render "articles/article_footer", article: article%>
+		</article>
+	</td></tr>
+	</table>
+</td></tr>
 
-<ul>
-<li><%= link_to "カテゴリ一覧", categories_path %></li>
-<li><%= link_to "ログイン", login_path %></li>
-<li><%= link_to "ログアウト", logout_path,  method: :delete, data: {confirm: "ログアウトしますか?"} %></li>
-</ul>
+
+<h2>飼育記録</h2>
+<iframe src="/breeding_records" width="100%" height="600px" scrolling="no" style="border: none;">
+
+</iframe>

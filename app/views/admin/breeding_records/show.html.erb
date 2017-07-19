@@ -1,0 +1,18 @@
+<% @page_title = @record.date.to_s + "の飼育記録" %>
+
+<p id="notice"><%= notice %></p>
+
+<h1><%= @page_title %></h1>
+
+<%= link_to "編集", edit_admin_breeding_record_path(@record) %>
+<%= link_to "削除", [:admin, @record], method: :delete, data: {confirm: "本当に削除しますか"} %>
+
+<table border="1">
+<tr><th>給餌</th><td><%= @record.feed %></td></tr>
+<tr><th>長さ</th><td><%= @record.height %></td></tr>
+<tr><th>重さ</th><td><%= @record.weight %></td></tr> 
+<tr><th>脱皮</th><td><%= @record.is_shed %></td></tr>
+<tr><th>メモ</th><td><%= @record.note %></td></tr>
+</table>
+
+<%= image_tag @record.photo_url, alt: "test" if @record.photo_url && @record.photo_url != "" %>

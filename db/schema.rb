@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627015350) do
+ActiveRecord::Schema.define(version: 20170711023322) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",                         null: false
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20170627015350) do
     t.integer  "user_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "breeding_records", force: :cascade do |t|
+    t.string   "feed"
+    t.integer  "weight"
+    t.integer  "height"
+    t.boolean  "is_shed"
+    t.text     "note"
+    t.string   "photo_url"
+    t.date     "date",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_breeding_records_on_date", unique: true
   end
 
   create_table "categories", force: :cascade do |t|

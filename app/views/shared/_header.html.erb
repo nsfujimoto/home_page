@@ -1,9 +1,10 @@
+<div id="header_wrapper">
 <% if current_user %>
 <%= render "shared/user_header" %>
 </nav>
 <% end %>
 <div id="header_image">
-<%= link_to "<h1>My_Page</h1>".html_safe, :root %>
+<%= link_to "<h1>TSUZONE</h1>".html_safe, :root %>
 </div>
 <nav id="menubar">
 	<ul>
@@ -11,3 +12,4 @@
 	<%= link_to "<li>ブログ</li>".html_safe, :articles %>
 	</ul>
 </nav>
+</div>
