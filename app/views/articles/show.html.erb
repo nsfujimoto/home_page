@@ -2,9 +2,9 @@
 
 <p id="notice"><%= notice %></p>
 
+<h1 class="article_title"><%= @article.title %></h1>
 <article class="article">
-<h1><%= @article.title %></h1>
-<p><%= @article.content.to_s.html_safe %>
-<%= @article.body.to_s.html_safe %></p>
-<%= render "article_footer", article: @article%>
+<p><%= @article.content.to_s.html_safe %></p>
+<p><%= @article.body.to_s.html_safe %></p>
 </article>
+<%= render "article_footer", article: @article%>

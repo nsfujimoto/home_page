@@ -9,19 +9,19 @@
 <%= paginate @articles %>
 
 <% if @articles.present? %>
-<table class="article">
+<table class="articles">
 	<% @articles.each do |article| %>
-	<tr><td>
-		<table class="article">
+	<tr><td style="padding-bottom: 50px">
+		<table>
 		<tr><td>
-			<h3><%= link_to article.title, article %></h3>
+			<h3 class="article_title"><%= link_to article.title, article %></h3>
 		</td></tr>
 		<tr><td>
-			<article>
+			<article class="article">
 			<p><%= article.content.to_s.html_safe %></p>
 			<p><%= article.body.truncate(200) %></p>
-			<%= render "article_footer", article: article%>
 			</article>
+			<%= render "article_footer", article: article%>
 		</td></tr>
 		</table>
 	</td></tr>

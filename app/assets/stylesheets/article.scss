@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.article {
+.articles {
 	table { 
 		width: 100%;
 		table-layout: fixed;
@@ -11,5 +11,21 @@
 	p {
 		word-wrap: break-word;
 	}
-
 }
+
+.article{
+	width: 95%;
+	padding-left: 15px;
+}
+
+.article_title{
+	font-size: 24px;
+	font-weight: lighter;
+	margin: 5px 0;
+	border-bottom: 1px dashed #000;
+	width: 90%;
+
+	a:link{ text-decoration: none; color: #000;}
+	a:visited{ text-decoration: none; color: #000;}
+}
+
