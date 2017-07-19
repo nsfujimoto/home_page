@@ -52,3 +52,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-controller-testing'
 
 gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'
+
+#ページネーションパッケージ"kaminari"
+gem 'kaminari'
