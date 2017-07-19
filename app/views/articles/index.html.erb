@@ -6,6 +6,8 @@
 <p><%= link_to "新規作成", new_admin_article_path %></p>
 <% end %>
 
+<%= paginate @articles %>
+
 <% if @articles.present? %>
 <table class="article">
 	<% @articles.each do |article| %>
@@ -28,3 +30,5 @@
 <% else %>
 	記事はありません
 <% end %>
+
+<%= paginate @articles %>
