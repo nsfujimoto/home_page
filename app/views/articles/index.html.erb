@@ -18,8 +18,8 @@
 		</td></tr>
 		<tr><td>
 			<article class="article">
-			<p><%= article.content.to_s.html_safe %></p>
-			<p><%= article.body.truncate(200) %></p>
+			<p><%= markdown(article.content) %></p>
+			<p><%= markdown(article.body.truncate(200)) %></p>
 			</article>
 			<%= render "article_footer", article: article%>
 		</td></tr>
