@@ -9,8 +9,10 @@ class Article < ApplicationRecord
 	validates :user_id, presence: true
 	validate :check_status
 	
-	scope :user, -> (current_user) { where("user_id = #{current_user.id}")}
-	scope :new_articles, -> ( n = 5 ) { find_by_sql(["select * from articles order by created_at desc limit #{n}"]) }
+	scope :user, -> ( user ) { where("user_id = #{user.id}")}
+	scope :new_articles, -> ( n = 5 ) { limit(n).order("created_at desc") }
+	scope :published, -> { where("status = 'published'") }
+	scope :not_published, -> { where.not("status = 'published'") }
 
 	private
 	def check_status

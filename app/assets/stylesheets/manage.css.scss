@@ -3,14 +3,13 @@ div#manage_wrapper{
 	min-height: 100%;
 	margin: 0 auto;
 	padding: 0 0 10px 0;
-	background-color: #CFC;
 	overflow: hidden;
 }
 
 div#sidebar_container{
 	margin-bottom: -10000px;
 	padding-bottom: 10000px;
-	background-color: #FDF;
+	background-color: #DDD;
 	float: left;
 }
 
@@ -30,7 +29,6 @@ div#main_content{
 	float: left;
 	margin-bottom: -10000px;
 	padding-bottom: 10000px;
-	background-color: #DDD;
 	padding-left: 10px;
 }
 
@@ -50,5 +48,17 @@ nav#manage_sidebar{
 	li a:link { text-decoration: none; color: #000; }
 	li a:visited { text-decoration: none; color: #000; }
 	li a:hover {background-color: #000; color: #FFF}
+}
 
+div#manage_footer{
+	height: 100px;
+	background-color: #000;
+	color: #FFF;
+}
+
+div#footer_author{
+	padding: 20px;
+	text-align: center;
+	a:link { text-decoration: none; color: #FFF; }
+	a:visited {text-decoration: none; color: #FFF; }
 }

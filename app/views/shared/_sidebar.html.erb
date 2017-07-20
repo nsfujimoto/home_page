@@ -9,7 +9,7 @@
 
 <dl>
 <dt class="sidebar_content_title">最新の記事</dt>
-<% Article.new_articles.each do |article| %>
+<% Article.published.new_articles.each do |article| %>
 	<dd><%= link_to article.title, article %><small> by <%= link_to article.author.nick_name, article.author %></small></dd>
 <% end %>
 </dl>

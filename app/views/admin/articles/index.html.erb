@@ -1,21 +1,48 @@
 <% @page_title = "記事一覧" %>
+<style>
+
+.table_title{
+	font-size: 24px;
+	font-weight: inherit;
+	margin: 10px 0 5px 0;
+	border-bottom: 1px dashed #000;
+}
+
+</style>
+
 
 <p id="notice"><%= notice %></p>
 
 <p><%= link_to "新規作成", new_admin_article_path %></p>
-<% if @articles.present? %>
-	<% @articles.each do |article| %>
-		<article>
-		<%= link_to article.title, admin_article_path(article) %> |
-		<%= article.created_at %> | 
-		<% unless article.category.nil? %>
-		<%= link_to article.category.name, article.category %>
-		<% else %>
-		no_category
-		<% end %>
-		| <%= article.author.nick_name if article.author %>
-		</article>
+<% if @published_articles.present? || @private_articles.present? %>
+
+<h1 class="table_title">公開中の記事</h1>
+<table id="published_articles" border="1">
+<tr><th>タイトル</th><th>カテゴリ</th><th>作成日</th><th>筆者</th>
+	<% @published_articles.each do |article| %>
+		<tr>
+		<td><%= link_to article.title, admin_article_path(article) %></td>
+		<td><%= link_to article.category.name, article.category %></td>
+		<td><%= article.created_at %></td>
+		<td><%= article.author.nick_name if article.author %></td>
+		</tr>
 	<% end %>
+</table>
+
+<h1 class="table_title">非公開の記事</h1>
+<table id="private_articles" border="1">
+<tr><th>タイトル</th><th>カテゴリ</th><th>作成日</th><th>筆者</th>
+	<% @private_articles.each do |article| %>
+		<tr>
+		<td><%= link_to article.title, admin_article_path(article) %></td>
+		<td><%= link_to article.category.name, article.category %></td>
+		<td><%= article.created_at %></td>
+		<td><%= article.author.nick_name if article.author %></td>
+		</tr>
+	<% end %>
+</table>
+
+
 <% else %>
 	記事はありません
 <% end %>

@@ -29,3 +29,20 @@
 	a:visited{ text-decoration: none; color: #000;}
 }
 
+
+table#article_edit_form{
+	width: 600px;
+	input{
+		width: 100%;
+		margin: 0;
+		margin-bottom: 5px;
+		padding: 2px 0 2px 2px;
+	}
+	textarea{
+		width: 100%;
+		margin: 0;
+		padding: 2px 2px 2px 2px;
+	}
+	.article_body{height: 300px;}
+	.article_content{height: 150px;}
+}

@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 	before_action :check_author, only: [:edit, :update, :destroy]
 
 	def index
-		@articles = Article.all.page(params[:page])
+		@articles = Article.order("created_at desc").published.page(params[:page])
 	end
 
 	def show

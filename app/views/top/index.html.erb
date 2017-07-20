@@ -9,17 +9,17 @@ h2 {
 
 
 <h2>最新記事</h2>
-<% article = Article.first %>
-<table class="article" style="width: 98%; margin: 0 auto;">
+<% article = Article.new_articles(1).last %>
+<table id="article" style="width:98%">
 	<tr><td>
 		<h3 class="article_title"><%= link_to article.title, article %></h3>
 	</td></tr>
 	<tr><td>
-		<article>
+		<article class = "article">
 		<p><%= article.content.to_s.html_safe %></p>
 		<p><%= article.body.truncate(200) %></p>
-		<%= render "articles/article_footer", article: article%>
 		</article>
+		<%= render "articles/article_footer", article: article%>
 	</td></tr>
 	</table>
 </td></tr>
