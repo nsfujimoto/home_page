@@ -46,3 +46,9 @@ table#article_edit_form{
 	.article_body{height: 300px;}
 	.article_content{height: 150px;}
 }
+
+div#preview_field{
+	width: 600px;
+	word-break: break-word;
+	margin: 5px;
+}

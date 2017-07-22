@@ -18,29 +18,59 @@
 
 <h1 class="table_title">公開中の記事</h1>
 <table id="published_articles" border="1">
-<tr><th>タイトル</th><th>カテゴリ</th><th>作成日</th><th>筆者</th>
+<tr><th>タイトル</th><th>カテゴリ</th><th>作成日</th><th>筆者</th><th>操作</th>
 	<% @published_articles.each do |article| %>
 		<tr>
 		<td><%= link_to article.title, admin_article_path(article) %></td>
 		<td><%= link_to article.category.name, article.category %></td>
 		<td><%= article.created_at %></td>
 		<td><%= article.author.nick_name if article.author %></td>
+		<td>
+			<%= link_to "編集", edit_admin_article_path(article) %> / 
+			<%= link_to "削除", [:admin, article], method: :delete, data: {confirm: "本当に削除しますか?"} %>
+		</td>
 		</tr>
 	<% end %>
 </table>
+<%= paginate @published_articles, param_name: "published_page" %>
+
+<h1 class="table_title">下書きの記事</h1>
+<table id="draft_articles" border="1">
+<tr><th>タイトル</th><th>カテゴリ</th><th>作成日</th><th>筆者</th><th>操作</th>
+	<% @draft_articles.each do |article| %>
+		<tr>
+		<td><%= link_to article.title, admin_article_path(article) %></td>
+		<td><%= link_to article.category.name, article.category %></td>
+		<td><%= article.created_at %></td>
+		<td><%= article.author.nick_name if article.author %></td>
+		<td>
+			<%= link_to "編集", edit_admin_article_path(article) %> / 
+			<%= link_to "削除", [:admin, article], method: :delete, data: {confirm: "本当に削除しますか?"} %>
+		</td>
+		</tr>
+	<% end %>
+</table>
+<%= paginate @draft_articles, param_name: "draft_page" %>
+
 
 <h1 class="table_title">非公開の記事</h1>
 <table id="private_articles" border="1">
-<tr><th>タイトル</th><th>カテゴリ</th><th>作成日</th><th>筆者</th>
+<tr><th>タイトル</th><th>カテゴリ</th><th>作成日</th><th>筆者</th><th>操作</th>
 	<% @private_articles.each do |article| %>
 		<tr>
 		<td><%= link_to article.title, admin_article_path(article) %></td>
 		<td><%= link_to article.category.name, article.category %></td>
 		<td><%= article.created_at %></td>
 		<td><%= article.author.nick_name if article.author %></td>
+		<td>
+			<%= link_to "編集", edit_admin_article_path(article) %> / 
+			<%= link_to "削除", [:admin, article], method: :delete, data: {confirm: "本当に削除しますか?"} %>
+		</td>
 		</tr>
 	<% end %>
 </table>
+<%= paginate @private_articles, param_name: "private_page" %>
+
 
 
 <% else %>

@@ -3,11 +3,13 @@ class Admin::ArticlesController < Admin::Base
 
 	def index
 		if current_user.administrator
-			@published_articles = Article.published.order("created_at desc")
-			@private_articles = Article.not_published.order("created_at desc")
+			@published_articles = Article.published.page(params[:published_page]).per(20)
+			@private_articles = Article.private_articles.page(params[:private_page]).per(10)
+			@draft_articles = Article.draft.page(params[:draft_page]).per(10)
 		else
-			@published_articles = Article.all.user(current_user).published.order("created_at desc")
-			@private_articles = Article.user(current_user).not_published.order("created_at desc")
+			@published_articles = Article.all.user(current_user).published.page(params[:published_page]).per(20)
+			@private_articles = Article.user(current_user).private_articles.page(params[:privat_page]).per(10)
+			@draft_articles = Article.user(current_user).draft.page(params[:draft_page]).per(10)
 		end
 	end
 

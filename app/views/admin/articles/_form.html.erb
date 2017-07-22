@@ -1,12 +1,26 @@
+<style>body{min-width: 1400px;}</style>
+<script>
+function update_marked_preview(){
+	var marked_text = marked(document.getElementById("content_editor").value) + marked(document.getElementById("body_editor").value);
+	document.getElementById("preview_field").innerHTML = marked_text;
+};
+
+</script>
+
+
+
+<table><tr valign="top"><td>
+
+<%= form_for [:admin, article] do |form| %>
 <table id="article_edit_form">
 <tr><td>
 <%= form.text_field :title, value: article.title, placeholder: "タイトル" %>
 </td></tr>
 <tr><td>
-<%= form.text_area :content, value: article.content, placeholder: "見出し", class: "article_content" %>
+<%= form.text_area :content, value: article.content, placeholder: "見出し", class: "article_content", id: "content_editor", onChange: "update_marked_preview()" %>
 </td></tr>
 <tr><td>
-<%= form.text_area :body, value: article.body, placeholder: "本文", class: "article_body" %>
+<%= form.text_area :body, value: article.body, placeholder: "本文", class: "article_body", id: "body_editor", onChange: "update_marked_preview()" %>
 </td></tr>
 <tr><td>
 <%= form.select :status, {"草稿" => "draft", "公開" => "published", "非公開" => "private"}, :selected => article.status %>
@@ -14,4 +28,14 @@
 <tr><td>
 <%= form.select :category_id, Category.get_hash %>
 </td></tr>
+<tr><td>
+<%= form.submit style: "width: auto;"%>
+</td></tr>
 </table>
+<% end %></td>
+
+
+<td>
+<div id="preview_field"><%= markdown(article.content) + markdown(article.body) %></div>
+</td>
+</tr></table>

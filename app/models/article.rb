@@ -11,8 +11,10 @@ class Article < ApplicationRecord
 	
 	scope :user, -> ( user ) { where("user_id = #{user.id}")}
 	scope :new_articles, -> ( n = 5 ) { limit(n).order("created_at desc") }
-	scope :published, -> { where("status = 'published'") }
-	scope :not_published, -> { where.not("status = 'published'") }
+	scope :published, -> { where("status = 'published'").order_created }
+	scope :private_articles, -> { where("status = 'private'").order_created }
+	scope :draft, -> { where("status = 'draft'").order_created }
+	scope :order_created, -> { order("created_at desc") }
 
 	private
 	def check_status
