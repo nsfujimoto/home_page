@@ -2,9 +2,9 @@ class Admin::PhotosController < Admin::Base
 	
   def index
 		if current_user.administrator
-			@photos = Photo.all
+			@photos = Photo.order("created_at desc").page(params[:page]).per(20)
 		else
-			@photos = Photo.users(current_user)
+			@photos = Photo.users(current_user).page(params[:page]).per(20)
 		end
   end
 

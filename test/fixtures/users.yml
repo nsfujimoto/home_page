@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string           not null
+#  detail          :text
+#  place           :text
+#  email           :string
+#  hashed_password :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  profile         :string
+#  nick_name       :string           not null
+#  administrator   :boolean          default(FALSE)
+#
+
 test:
   name: "test"
   profile: "test_profile"

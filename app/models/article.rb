@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id          :integer          not null, primary key
+#  title       :string           not null
+#  body        :text             not null
+#  content     :text
+#  status      :string           default("draft")
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  category_id :integer
+#  user_id     :integer
+#
+
 class Article < ApplicationRecord
 	belongs_to :category
 	belongs_to :user

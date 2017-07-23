@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 	resources :breeding_records, only:[:index, :show]
 	get "breeding_records/:year/:month" => "breeding_records#index"
 	
-	get "login" => "sessions#new"
-	post "login" => "sessions#create"
+	get "user/create/login" => "sessions#new", as: :login
+	post "user/create/login" => "sessions#create"
 	delete "logout" => "sessions#destroy"
 
 	get "admin" => "admin#index"

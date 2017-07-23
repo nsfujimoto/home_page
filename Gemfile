@@ -58,3 +58,5 @@ gem 'kaminari'
 
 #Markdownパーサ
 gem 'redcarpet'
+
+gem 'annotate'

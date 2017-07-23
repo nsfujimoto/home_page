@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string           not null
+#  detail          :text
+#  place           :text
+#  email           :string
+#  hashed_password :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  profile         :string
+#  nick_name       :string           not null
+#  administrator   :boolean          default(FALSE)
+#
+
 class User < ApplicationRecord
 	has_one :image, class_name: "UserImage", inverse_of: :user, dependent: :destroy
 	accepts_nested_attributes_for :image

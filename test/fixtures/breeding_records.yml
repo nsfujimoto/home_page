@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: breeding_records
+#
+#  id         :integer          not null, primary key
+#  feed       :string
+#  weight     :integer
+#  height     :integer
+#  is_shed    :boolean
+#  note       :text
+#  photo_url  :string
+#  date       :date             not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

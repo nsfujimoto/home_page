@@ -10,19 +10,19 @@
   </thead>
 
   <tbody>
-    <% @photos.each do |photo| %>
-      <tr><td>
-				<tr><td colspan="3"><%= create_photo_image_tag(photo, alt: photo.name, class: "thumbnail") %></td></tr>
-				<tr>
-        <td><%= link_to 'Show', admin_photo_path(photo) %></td>
-        <td><%= link_to 'Edit', edit_admin_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', admin_photo_path(photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				</tr>
-      </td></tr>
+		<% @cnt = 0 %>
+    <% @photos.each_with_index do |photo, idx| %>
+      <%= "<tr>".html_safe if idx % 4 == 0 %>
+				<td>
+					<div><%= link_to create_photo_image_tag(photo, alt: photo.name, class: "thumbnail"), [:admin, photo] %></div>
+					<div><%= link_to "編集", edit_admin_photo_path(photo) %>/
+							 <%= link_to "削除", [:admin, photo], method: :delete, data: {confirm: "削除しますか?" } %></div>
+				</td>
+			<%= "</tr>".html_safe if idx % 4 == 3 %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Photo', new_admin_photo_path %>
+<%= link_to 'New Photo', "#" %>
