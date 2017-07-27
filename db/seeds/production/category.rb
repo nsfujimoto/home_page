@@ -1,0 +1,1 @@
+Category.create(name: "sample_category")

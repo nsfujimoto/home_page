@@ -1,4 +1,5 @@
 <table id="user">
+<%= form_for [:admin, user] do |form| %>
 <%= form.fields_for :image do |image| %>
 <tr><td><%= image.file_field :uploaded_image %></td></tr>
 <% end %>
@@ -12,4 +13,6 @@
 <tr><td><%= form.text_field :email, placeholder: "sample@example.com" %></td></tr>
 <tr><td><%= form.text_field :password, value: "", placeholder: "パスワード" %></td></tr>
 <tr><td><%= form.text_field :password_confirmation, value: "", placeholder: "確認用パスワード" %></td></tr>
+<tr><td><%= form.submit %></td></tr>
+<% end %>
 </table>

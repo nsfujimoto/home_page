@@ -1,4 +1,5 @@
-tables = %w(user article photo breeding_record)
+tables = %w(user article photo breeding_record) if Rails.env == "development"
+tables = %w(user category) if Rails.env == "production"
 
 p "start create seed data"
 tables.each do |table|

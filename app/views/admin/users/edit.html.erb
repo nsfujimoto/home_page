@@ -2,8 +2,4 @@
 
 <h1><%= @page_title %></h1>
 
-<%= form_for @user do |form| %>
-<% logger.debug @user %>
-	<%= render "form", form: form, user: @user %>
-	<%= form.submit %>
-<% end %>
+<%= render "form", user: @user %>
