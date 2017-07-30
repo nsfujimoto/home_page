@@ -28,8 +28,9 @@ class Admin::UsersController < Admin::Base
 		@user.assign_attributes(user_params)
 		
 		if @user.save
-			redirect_to [:admin, @user]
+			redirect_to [:admin, @user], notice: "ユーザーを作成しました"
 		else
+			flash.now[:notice] = "作成に失敗しました"
 			@user.build_image
 			render "new"
 		end

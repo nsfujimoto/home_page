@@ -19,3 +19,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore compiled file
+/public/assets/*
+
+# Ignore secret_key
+secret.key
