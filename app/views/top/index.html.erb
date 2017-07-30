@@ -10,12 +10,12 @@
 <h2 class="content_title">最新記事</h2>
 <% if Article.count != 0 %>
 <% article = Article.new_articles(1).last %>
-<table id="article" style="width:98%">
+<table id="article" style="width:99%; table-layout:fixed">
 	<tr><td>
 		<h3 class="article_title"><%= link_to article.title, article %></h3>
 	</td></tr>
 	<tr><td>
-		<article class = "article">
+		<article class="article">
 		<p><%= markdown(article.content) %></p>
 		<p><%= markdown(article.body.truncate(200)) %></p>
 		</article>

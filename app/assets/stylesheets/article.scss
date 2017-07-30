@@ -7,15 +7,15 @@
 		width: 100%;
 		table-layout: fixed;
 	}
-
-	p {
-		word-wrap: break-word;
-	}
 }
 
 .article{
 	width: 95%;
 	padding-left: 15px;
+
+	p {
+		word-wrap: break-word;
+	}
 }
 
 .article_title{
