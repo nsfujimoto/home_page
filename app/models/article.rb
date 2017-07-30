@@ -31,6 +31,14 @@ class Article < ApplicationRecord
 	scope :draft, -> { where("status = 'draft'").order_created }
 	scope :order_created, -> { order("created_at desc") }
 
+	def category_name
+		if self.category.present?
+			self.category.name
+		else
+			"no_category"
+		end
+	end
+
 	private
 	def check_status
 		valid_status = ["published", "draft", "private"]

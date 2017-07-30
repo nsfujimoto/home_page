@@ -20,7 +20,7 @@ class Admin::CategoriesController < Admin::Base
 		@category = Category.new
 		@category.assign_attributes(category_params)
 		if @category.save
-			redirect_to @category, notice: "カテゴリを登録しました"
+			redirect_to [:admin, @category], notice: "カテゴリを登録しました"
 		else
 		end
 	end
@@ -30,7 +30,7 @@ class Admin::CategoriesController < Admin::Base
 		@category.assign_attributes(category_params)
 
 		if @category.save
-			redirect_to @category
+			redirect_to [:admin, @category]
 		else
 		end
 	end
@@ -38,9 +38,9 @@ class Admin::CategoriesController < Admin::Base
 	def destroy
 		@category = Category.find(params[:id])
 		if @category.destroy
-			redirect_to categories_path, notice: "カテゴリを削除しました"
+			redirect_to admin_categories_path, notice: "カテゴリを削除しました"
 		else
-			redirect_to @category, notice: "カテゴリの削除に失敗しました"
+			redirect_to [:admin, @category], notice: "カテゴリの削除に失敗しました"
 		end
 	end
 

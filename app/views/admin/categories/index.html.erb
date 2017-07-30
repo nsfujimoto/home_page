@@ -4,9 +4,9 @@
 
 <div>
 <% @categories.each do |category| %>
-	<%= link_to category.name, category %> | 
-	<%= link_to "編集", [:edit, category] %> |
-	<%= link_to "削除", category, method: :delete, data: {confirm: "削除しますか"} %><br>
+	<%= link_to category.name, [:admin, category] %> | 
+	<%= link_to "編集", [:edit, :admin, category] %> |
+	<%= link_to "削除", [:admin, category], method: :delete, data: {confirm: "削除しますか"} %><br>
 <% end %>
 </div>
-<%= link_to "新規作成", new_category_path %>
+<%= link_to "新規作成", new_admin_category_path %>

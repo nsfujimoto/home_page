@@ -22,7 +22,7 @@
 	<% @published_articles.each do |article| %>
 		<tr>
 		<td><%= link_to article.title, admin_article_path(article) %></td>
-		<td><%= link_to article.category.name, article.category %></td>
+		<td><%= link_to article.category_name, article.category %></td>
 		<td><%= article.created_at %></td>
 		<td><%= article.author.nick_name if article.author %></td>
 		<td>
@@ -40,7 +40,7 @@
 	<% @draft_articles.each do |article| %>
 		<tr>
 		<td><%= link_to article.title, admin_article_path(article) %></td>
-		<td><%= link_to article.category.name, article.category %></td>
+		<td><%= link_to article.category_name, article.category %></td>
 		<td><%= article.created_at %></td>
 		<td><%= article.author.nick_name if article.author %></td>
 		<td>
@@ -59,7 +59,7 @@
 	<% @private_articles.each do |article| %>
 		<tr>
 		<td><%= link_to article.title, admin_article_path(article) %></td>
-		<td><%= link_to article.category.name, article.category %></td>
+		<td><%= link_to article.category_name, article.category %></td>
 		<td><%= article.created_at %></td>
 		<td><%= article.author.nick_name if article.author %></td>
 		<td>

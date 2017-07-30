@@ -4,6 +4,7 @@
 	<li><%= link_to "レイアウト管理", "#" %></li>
 	<li><%= link_to "アカウント管理", admin_account_path %></li>
 	<% if current_user.administrator %>
+		<li><%= link_to "カテゴリー管理", admin_categories_path %></li>
 		<li><%= link_to "ユーザー管理", admin_users_path %></li>
 		<li><%= link_to "飼育記録", admin_breeding_records_path %></li>
 	<% end %>
