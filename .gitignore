@@ -22,7 +22,6 @@
 
 # Ignore compiled file
 /public/assets/*
-/public/marked/*
 
 # Ignore secret_key
 secret.key
