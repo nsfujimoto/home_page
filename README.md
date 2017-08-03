@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Use
+
+public/marked は https://github.com/chjj/marked を使用しています
