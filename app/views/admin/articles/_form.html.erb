@@ -2,8 +2,21 @@
 <script>
 function update_marked_preview(){
 	var marked_text = marked(document.getElementById("content_editor").value) + marked(document.getElementById("body_editor").value);
-	document.getElementById("preview_field").innerHTML = marked_text;
+	var preview = document.getElementById("preview_field")
+	preview.innerHTML = marked_text;
+	preview.querySelectorAll("pre code").forEach(hljs.highlightBlock);
 };
+
+function preview_escape(){
+	var plane = document.getElementById("escape_editor").value
+	document.getElementById("escape_view").innerText = escapeHtml(plane);
+}
+
+
+var apply_highlight = function(){
+	document.getElementById("preview_field").querySelectorAll("pre code").forEach(hljs.highlightBlock);
+}
+
 </script>
 <script type="text/javascript" src="/marked/marked.min.js"></script>
 
@@ -38,3 +51,17 @@ function update_marked_preview(){
 <div id="preview_field"><%= markdown(article.content) + markdown(article.body) %></div>
 </td>
 </tr></table>
+
+
+<ol>
+<li>記述にはmarkdownが使用できます。</li>
+<li>pre codeの要素はシンタックスハイライトが適用されます。</li>
+<li>シンタックスハイライト適用要素内でHTML要素を使用する場合は、codeのclassに"use_html"を指定し、HTML要素以外はHTMLエスケープをしてください。
+</ol>
+
+HTMLエスケーパー<br>
+<table style="border:1px solid #000" rules="all"><tr valign="top"><td>
+<textarea id="escape_editor" style="width: 300px; height: 300px; border: none;" onChange="preview_escape()"></textarea></td>
+<td><div id="escape_view" style="width:300px;"></div></td></tr></table>
+
+<script>apply_highlight();</script>

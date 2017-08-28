@@ -6,6 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+		<link rel="stylesheet" href="/highlight/styles/tomorrow-night.css" data-turbolinks-track="reload">
+		<script src="/highlight/highlight.pack.js" data-turbolinks-track="reload"></script>
   </head>
 
   <body id="body" style="min-width: 900px" >
@@ -42,5 +45,6 @@
 		<%= render "shared/manage_footer" %>
 		</div>
 		<!-- Footer -->
+		<script>hljs.initHighlighting();</script>
   </body>
 </html>
