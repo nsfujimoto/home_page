@@ -4,7 +4,7 @@
 
 <h1 class="article_title"><%= @article.title %></h1>
 <article class="article">
-<p><%= markdown(@article.content) %></p>
-<p><%= markdown(@article.body) %></p>
+<%= markdown(@article.content) %>
+<%= markdown(@article.body) %>
 </article>
 <%= render "article_footer", article: @article%>
