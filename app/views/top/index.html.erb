@@ -10,19 +10,11 @@
 <h2 class="content_title">最新記事</h2>
 <% if Article.count != 0 %>
 <% article = Article.new_articles(1).published.last %>
-<table id="article" style="width:99%; table-layout:fixed">
-	<tr><td>
-		<h3 class="article_title"><%= link_to article.title, article %></h3>
-	</td></tr>
-	<tr><td>
-		<article class="article">
-		<%= markdown(article.content) %>
-		<%= markdown(article.body.truncate(200)) %>
-		</article>
-		<%= render "articles/article_footer", article: article%>
-	</td></tr>
-	</table>
-</td></tr>
+
+<div style="width: 100%;">
+<%= render "/articles/article_content_view", article: article %>
+</div>
+
 <% end %>
 
 <h2 class="content_title">飼育記録</h2>

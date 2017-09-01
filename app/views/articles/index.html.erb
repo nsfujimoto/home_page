@@ -18,18 +18,7 @@
 		
 		<!-- start article -->
 		
-		<table>
-		<tr><td>
-			<h3 class="article_title"><%= link_to article.title, article %></h3>
-		</td></tr>
-		<tr><td>
-			<article class="article">
-			<%= markdown(article.content) %>
-			<%= markdown(article.body.truncate(200)) %>
-			</article>
-			<%= render "article_footer", article: article%>
-		</td></tr>
-		</table>
+		<%= render "article_content_view", article: article %>
 
 		<!-- end article -->
 

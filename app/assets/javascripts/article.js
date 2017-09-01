@@ -11,7 +11,7 @@ function blockhighlighting(block){
 //エスケープ処理
 var escapeHtml = (function (String) {
   var escapeMap = {
-    //'&': '&amp;',
+    '&': '&amp;',
     "'": '&#x27;',
     '`': '&#x60;',
     '"': '&quot;',

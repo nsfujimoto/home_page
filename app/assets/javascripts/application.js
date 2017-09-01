@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function initHighlighting_forrails(){
+    hljs.initHighlighting.called = false;
+    hljs.initHighlighting();
+}
