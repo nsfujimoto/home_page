@@ -5,7 +5,7 @@
 <tr><td>
     <article class="article">
     <%= markdown(article.content) %>
-    <!-- markdown(article.body.truncate(200)) -->
+    <%# markdown(article.body.truncate(200)) %>
     </article>
     <%= render "/articles/article_footer", article: article%>
 </td></tr>

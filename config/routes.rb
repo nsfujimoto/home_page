@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 	post "user/create/login" => "sessions#create"
 	delete "logout" => "sessions#destroy"
 
+	#adminネームスペース下のルーティング
 	get "admin" => "admin#index"
 	namespace :admin do
 		resources :articles
@@ -21,6 +22,6 @@ Rails.application.routes.draw do
 		resource :account
 		resources :breeding_records
 		get "breeding_records/:year/:month" => "breeding_records#index"
-
+		resources :todos, except: [:edit]
 	end
 end

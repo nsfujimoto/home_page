@@ -1,0 +1,20 @@
+<style>
+.over_date{
+	font-weight: bold;
+	color: #F00;
+}
+</style>
+
+<% per_page = 10 unless per_page.present? %>
+<% @todos = Todo.auth_user(current_user).order('"end_day" IS NULL ASC, "end_day" ASC').page(params[:page]).per(per_page) %>
+<table style="margin-bottom: 100px">
+<%# <tr><th></th><th>Todo</th><th>終了予定日</th></tr> %>
+<% @todos.each do |todo| %>
+<tr>
+	<td><%= button_to "完了", [:admin, todo], method: :delete %></td>
+	<td><%= link_to todo.title, [:admin, todo], class: ("over_date" if todo.is_over) %></td>
+	<td class="<%= "over_date" if todo.is_over %>"><%= todo.end_day %></td>
+</tr>
+<% end %>
+</table>
+<%= paginate @todos %>

@@ -1,0 +1,19 @@
+<%= form_for [:admin, todo] do |f| %>
+<table>
+<tr><th>TODO</th><td><%= f.text_field :title, class: "edit_field" %></td></tr>
+<tr><th>メモ</th><td><%= f.text_area :memo, class: "edit_field", style: "height: 60px;" %></td></tr>
+<tr><th>終了予定</th><td>
+<%= f.date_select :end_day, use_month_numbers: true, style: "border: none;" %>
+<%= f.check_box :exist_end_day %>
+</td></tr>
+<tr><td colspan="2">
+<%= 
+	if action_name == "new" || action_name == "index"
+		f.submit "作成", action: "create" 
+	else
+		f.submit "更新", action: "update" 
+	end
+%>
+</td></tr>
+</table>
+<% end %>

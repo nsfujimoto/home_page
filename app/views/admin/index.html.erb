@@ -1,3 +1,9 @@
 <% @page_title = "未作成" %>
 
 <div>よく使う管理機能をまとめたポータル画面を作成する予定</div>
+
+<div id="todos">
+<h2 style="margin-bottom: 10px">Todo</h2>
+<%= render "/admin/todos/todo_index" %>
+<small><%= link_to "TODO一覧", admin_todos_path() %>	<%= link_to "新規作成", new_admin_todo_path() %></small>
+</div>

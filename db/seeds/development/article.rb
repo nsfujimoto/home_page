@@ -18,7 +18,7 @@ end
 	article.title = "test_#{n}"
 	article.body = "test_body_#{n}" * n
 	article.status = ["published", "draft", "private"][n % 3]
-	article.content = "test_content" if n % 3 == 1
+	article.content = "test_content"
 	article.category = Category.find(n % 3 + 1)
 	article.user_id = users[n % 3].id
 	if article.save

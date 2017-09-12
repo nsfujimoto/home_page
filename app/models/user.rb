@@ -21,6 +21,7 @@ class User < ApplicationRecord
 
 	has_many :article, dependent: :destroy
 	has_many :photo
+	has_many :todo
 
 	validates :name, presence: true, length: { maximum: 100}
 	validates :detail, length: {maximum: 4000}

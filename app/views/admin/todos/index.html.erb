@@ -1,0 +1,9 @@
+<h1><%= @page_title = "Todo一覧" %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<%= render "todo_index", per_page: 20 %>
+
+<hr style="width: 95%; border-top: 1px #000 dashed;">
+
+<%= render "form", todo: Todo.new %>
