@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 	get "user/create/login" => "sessions#new", as: :login
 	post "user/create/login" => "sessions#create"
 	delete "logout" => "sessions#destroy"
+	get "cage_video" => "top#new"
 
 	#adminネームスペース下のルーティング
 	get "admin" => "admin#index"
